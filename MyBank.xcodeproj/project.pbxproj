@@ -17,6 +17,8 @@
 		93CA489C268DE2D600340F7E /* AddMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA489B268DE2D600340F7E /* AddMoney.swift */; };
 		93CA489E268DFCC000340F7E /* SendMoneyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA489D268DFCC000340F7E /* SendMoneyPage.swift */; };
 		93CA48A0268E0DEF00340F7E /* LoanPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA489F268E0DEF00340F7E /* LoanPage.swift */; };
+		93CA48A2268E3E6A00340F7E /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA48A1268E3E6A00340F7E /* SettingsPage.swift */; };
+		93CA48A4268E440500340F7E /* PersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA48A3268E440500340F7E /* PersonalInfo.swift */; };
 		93F3C7B4268CCBFC00A8A2FF /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C7B3268CCBFC00A8A2FF /* SignIn.swift */; };
 		93F3C7B6268CCC3900A8A2FF /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C7B5268CCC3900A8A2FF /* SignUP.swift */; };
 		93F3C7B8268CEA4700A8A2FF /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F3C7B7268CEA4700A8A2FF /* HomePage.swift */; };
@@ -35,6 +37,8 @@
 		93CA489B268DE2D600340F7E /* AddMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoney.swift; sourceTree = "<group>"; };
 		93CA489D268DFCC000340F7E /* SendMoneyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyPage.swift; sourceTree = "<group>"; };
 		93CA489F268E0DEF00340F7E /* LoanPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanPage.swift; sourceTree = "<group>"; };
+		93CA48A1268E3E6A00340F7E /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		93CA48A3268E440500340F7E /* PersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfo.swift; sourceTree = "<group>"; };
 		93F3C7B3268CCBFC00A8A2FF /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		93F3C7B5268CCC3900A8A2FF /* SignUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
 		93F3C7B7268CEA4700A8A2FF /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				93CA4895268D976500340F7E /* TransactionsPage.swift */,
 				93CA4897268DA2F600340F7E /* TransactionDetailPage.swift */,
 				93CA489F268E0DEF00340F7E /* LoanPage.swift */,
+				93CA48A1268E3E6A00340F7E /* SettingsPage.swift */,
+				93CA48A3268E440500340F7E /* PersonalInfo.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -195,6 +201,8 @@
 				93CA489A268DD72B00340F7E /* MyCardPage.swift in Sources */,
 				93F3C7B6268CCC3900A8A2FF /* SignUP.swift in Sources */,
 				93CA4898268DA2F600340F7E /* TransactionDetailPage.swift in Sources */,
+				93CA48A4268E440500340F7E /* PersonalInfo.swift in Sources */,
+				93CA48A2268E3E6A00340F7E /* SettingsPage.swift in Sources */,
 				93CA489C268DE2D600340F7E /* AddMoney.swift in Sources */,
 				93CA48A0268E0DEF00340F7E /* LoanPage.swift in Sources */,
 				93F3C7B4268CCBFC00A8A2FF /* SignIn.swift in Sources */,

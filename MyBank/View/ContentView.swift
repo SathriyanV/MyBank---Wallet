@@ -28,10 +28,10 @@ struct ContentView: View {
                     Text("Loan")
                 }
             
-            Text("Profile")
+            SettingsPage()
                 .tabItem {
-                    Image(systemName: "person")
-                    Text("Profile")
+                    Image(systemName: "gear")
+                    Text("Settings")
                 }
             
         }
