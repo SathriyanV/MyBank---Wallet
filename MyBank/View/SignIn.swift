@@ -17,7 +17,6 @@ struct SignIn: View {
     
     @State var showSheet : Bool = true
     
-   
     var body: some View {
 
             NavigationView {
