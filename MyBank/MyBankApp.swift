@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct MyBankApp: App {
+    
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isLoggedIn {
+                SignIn()
+            }else{
+                ContentView()
+            }
+            
+            
         }
     }
 }

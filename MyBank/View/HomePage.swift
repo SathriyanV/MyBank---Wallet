@@ -9,11 +9,20 @@ import SwiftUI
 
 struct HomePage: View {
     
-    @State var balanceAmount : Int = 200
+    @State var balanceAmount : Int = 0
+    
+    @State var sendBalance : Int = 0
+    
+    @State var receiverName : String = "Sathriyan"
     
     @State var showSheet : Bool = false
     
+    @State var balanceCheck : Int = 100
+    
+    var amount : Int = 0
+    
     var body: some View {
+        
         NavigationView {
             GeometryReader { geo in
                 VStack {
@@ -27,7 +36,6 @@ struct HomePage: View {
                             .foregroundColor(Color("CardBg"))
                             .font(Font.system(size: geo.size.width * 0.065))
                             .fontWeight(.bold)
-                            
                         
                         Spacer()
                         
@@ -42,25 +50,19 @@ struct HomePage: View {
                     .frame(maxWidth : .infinity, alignment: .center)
                     
                     VStack(spacing : geo.size.height * 0.02){
-                       
-                            Text("MyBank Balance")
-                                .font(Font.system(size: geo.size.width * 0.052))
-                                .fontWeight(.semibold)
-                                .frame(maxWidth : .infinity, alignment: .leading)
-                                .padding(.leading, geo.size.width * 0.065)
-                            
+                        
+                        Text("MyBank Balance")
+                            .font(Font.system(size: geo.size.width * 0.052))
+                            .fontWeight(.semibold)
+                            .frame(maxWidth : .infinity, alignment: .leading)
+                            .padding(.leading, geo.size.width * 0.065)
+                        
                         ZStack{
-                            NavigationLink(
-                                destination: MyCardPage()
-                                    .navigationBarBackButtonHidden(true)
-                                    .navigationBarHidden(true),
-                                label: {
-                                    Color("CardBg")
-                                        .opacity(0.85)
-                                        .frame(width : geo.size.width * 0.88, height: geo.size.height * 0.25)
-                                        .cornerRadius(geo.size.width * 0.02)
-                                })
                             
+                            Color("CardBg")
+                                .opacity(0.85)
+                                .frame(width : geo.size.width * 0.88, height: geo.size.height * 0.25)
+                                .cornerRadius(geo.size.width * 0.02)
                             
                             VStack {
                                 HStack {
@@ -90,18 +92,17 @@ struct HomePage: View {
                                     .padding(.leading, geo.size.width * 0.19)
                                 }
                                 
-                               
-                                    Text("BALANCE")
-                                        .foregroundColor(.white)
-                                        .font(Font.system(size: geo.size.width * 0.04))
-                                        .fontWeight(.semibold)
-                                        .frame(maxWidth : .infinity, alignment: .leading)
-                                        .padding(.leading, geo.size.width * 0.139)
-                                        .padding(.top, geo.size.height * 0.065)
+                                Text("BALANCE")
+                                    .foregroundColor(.white)
+                                    .font(Font.system(size: geo.size.width * 0.04))
+                                    .fontWeight(.semibold)
+                                    .frame(maxWidth : .infinity, alignment: .leading)
+                                    .padding(.leading, geo.size.width * 0.139)
+                                    .padding(.top, geo.size.height * 0.065)
                                 
                                 HStack{
                                     
-                                    Text("$ \(balanceAmount)")
+                                    Text("$ \(((amount + balanceAmount) - sendBalance))")
                                         .foregroundColor(.white)
                                         .font(Font.system(size: geo.size.width * 0.05))
                                         .fontWeight(.bold)
@@ -109,7 +110,7 @@ struct HomePage: View {
                                         .padding(.leading, geo.size.width * 0.139)
                                         .padding(.top, geo.size.height * 0.009)
                                     
-                                    Text("My Card")
+                                    Text("Sathriyan")
                                         .foregroundColor(.white)
                                         .font(Font.system(size: geo.size.width * 0.07))
                                         .fontWeight(.semibold)
@@ -117,9 +118,24 @@ struct HomePage: View {
                                         .padding(.leading, geo.size.width * 0.085)
                                 }
                             }
+                            
                         }
                     }
                     .padding(.top, geo.size.height * 0.013)
+                    
+                    NavigationLink(
+                        destination: AddMoney(balanceAmount: $balanceAmount, balanceCheck : $balanceCheck)
+                            .navigationBarBackButtonHidden(false)
+                            .navigationBarHidden(false),
+                        label: {
+                            Text(" + Add Money")
+                                .fontWeight(.semibold)
+                                .font(Font.system(size: geo.size.width * 0.045))
+                                .foregroundColor(.accentColor)
+                                .frame(maxWidth : .infinity, alignment: .trailing)
+                                .padding(.trailing, geo.size.width * 0.07)
+                            
+                        })                        
                     
                     ScrollView (showsIndicators : false){
                         VStack{
@@ -130,130 +146,131 @@ struct HomePage: View {
                                 .frame(maxWidth : .infinity, alignment: .leading)
                                 .padding(.leading, geo.size.width * 0.065)
                                 .padding(.bottom, geo.size.height * 0.015)
+                                .padding(.top, -geo.size.height * 0.03)
                             
                             ScrollView(.horizontal, showsIndicators : false){
                                 HStack(spacing : geo.size.width * 0.04){
                                     
                                     NavigationLink(
-                                        destination: SendMoneyPage()
+                                        destination: SendMoneyPage(sendBalance : $sendBalance, receiverName : $receiverName)
                                             .navigationBarBackButtonHidden(true)
                                             .navigationBarHidden(true),
                                         
                                         label: {
-                                    VStack{
-                                        Image(systemName: "arrow.right.circle")
-                                            .resizable()
-                                            .foregroundColor(.black)
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width : geo.size.width * 0.11)
-                                            .opacity(0.7)
-                                        
-                                        Text("Send")
-                                            .foregroundColor(.black)
-                                            .fontWeight(.semibold)
-                                    }
-                                    .padding(.horizontal, geo.size.width * 0.045)
-                                    .padding(.vertical, geo.size.height * 0.02)
-                                    .background(Color.black.opacity(0.075))
-                                    .cornerRadius(geo.size.width * 0.015)
-                                    
-                                    })
+                                            VStack{
+                                                Image(systemName: "arrow.right.circle")
+                                                    .resizable()
+                                                    .foregroundColor(.black)
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width : geo.size.width * 0.11)
+                                                    .opacity(0.7)
+                                                
+                                                Text("Send")
+                                                    .foregroundColor(.black)
+                                                    .fontWeight(.semibold)
+                                            }
+                                            .padding(.horizontal, geo.size.width * 0.045)
+                                            .padding(.vertical, geo.size.height * 0.02)
+                                            .background(Color.black.opacity(0.075))
+                                            .cornerRadius(geo.size.width * 0.015)
+                                            
+                                        })
                                     
                                     NavigationLink(
-                                        destination: SendMoneyPage()
+                                        destination: SendMoneyPage(sendBalance : $sendBalance, receiverName : $receiverName)
                                             .navigationBarBackButtonHidden(true)
                                             .navigationBarHidden(true),
                                         
                                         label: {
-                                    VStack{
-                                        Image("Sam Blue Background")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
-                                            .shadow(radius: 1)
-                                        
-                                        Text("Sam")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.black)
-                                    }
-                                    .padding(.horizontal, geo.size.width * 0.045)
-                                    .padding(.vertical, geo.size.height * 0.02)
-                                    .background(Color.black.opacity(0.075))
-                                    .cornerRadius(geo.size.width * 0.015)
+                                            VStack{
+                                                Image("Sam Blue Background")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
+                                                    .shadow(radius: 1)
+                                                
+                                                Text("Sam")
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.black)
+                                            }
+                                            .padding(.horizontal, geo.size.width * 0.045)
+                                            .padding(.vertical, geo.size.height * 0.02)
+                                            .background(Color.black.opacity(0.075))
+                                            .cornerRadius(geo.size.width * 0.015)
                                             
-                                    })
+                                        })
                                     
                                     NavigationLink(
-                                        destination: SendMoneyPage()
+                                        destination: SendMoneyPage(sendBalance : $sendBalance, receiverName : $receiverName)
                                             .navigationBarBackButtonHidden(true)
                                             .navigationBarHidden(true),
                                         
                                         label: {
-                                    VStack{
-                                        Image("Sam Blue Background")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
-                                            .shadow(radius: 1)
-                                        
-                                        Text("Sam")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.black)
-                                    }
-                                    .padding(.horizontal, geo.size.width * 0.045)
-                                    .padding(.vertical, geo.size.height * 0.02)
-                                    .background(Color.black.opacity(0.075))
-                                    .cornerRadius(geo.size.width * 0.015)
+                                            VStack{
+                                                Image("Sam Blue Background")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
+                                                    .shadow(radius: 1)
+                                                
+                                                Text("Sam")
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.black)
+                                            }
+                                            .padding(.horizontal, geo.size.width * 0.045)
+                                            .padding(.vertical, geo.size.height * 0.02)
+                                            .background(Color.black.opacity(0.075))
+                                            .cornerRadius(geo.size.width * 0.015)
                                             
-                                    })
+                                        })
                                     
                                     NavigationLink(
-                                        destination: SendMoneyPage()
+                                        destination: SendMoneyPage(sendBalance : $sendBalance, receiverName : $receiverName)
                                             .navigationBarBackButtonHidden(true)
                                             .navigationBarHidden(true),
                                         
                                         label: {
-                                    VStack{
-                                        Image("Sam Blue Background")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
-                                            .shadow(radius: 1)
-                                        
-                                        Text("Sam")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.black)
-                                    }
-                                    .padding(.horizontal, geo.size.width * 0.045)
-                                    .padding(.vertical, geo.size.height * 0.02)
-                                    .background(Color.black.opacity(0.075))
-                                    .cornerRadius(geo.size.width * 0.015)
+                                            VStack{
+                                                Image("Sam Blue Background")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
+                                                    .shadow(radius: 1)
+                                                
+                                                Text("Sam")
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.black)
+                                            }
+                                            .padding(.horizontal, geo.size.width * 0.045)
+                                            .padding(.vertical, geo.size.height * 0.02)
+                                            .background(Color.black.opacity(0.075))
+                                            .cornerRadius(geo.size.width * 0.015)
                                             
-                                    })
+                                        })
                                     
                                     NavigationLink(
-                                        destination: SendMoneyPage()
+                                        destination: SendMoneyPage(sendBalance : $sendBalance, receiverName : $receiverName)
                                             .navigationBarBackButtonHidden(true)
                                             .navigationBarHidden(true),
                                         
                                         label: {
-                                    VStack{
-                                        Image("Sam Blue Background")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
-                                            .shadow(radius: 1)
-                                        
-                                        Text("Sam")
-                                            .fontWeight(.semibold)
-                                            .foregroundColor(.black)
-                                    }
-                                    .padding(.horizontal, geo.size.width * 0.045)
-                                    .padding(.vertical, geo.size.height * 0.02)
-                                    .background(Color.black.opacity(0.075))
-                                    .cornerRadius(geo.size.width * 0.015)
+                                            VStack{
+                                                Image("Sam Blue Background")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .frame(width : geo.size.width * 0.11, height: geo.size.width * 0.11)
+                                                    .shadow(radius: 1)
+                                                
+                                                Text("Sam")
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.black)
+                                            }
+                                            .padding(.horizontal, geo.size.width * 0.045)
+                                            .padding(.vertical, geo.size.height * 0.02)
+                                            .background(Color.black.opacity(0.075))
+                                            .cornerRadius(geo.size.width * 0.015)
                                             
-                                    })
+                                        })
                                 }
                             }
                             .padding(.horizontal, geo.size.width * 0.065)
@@ -286,7 +303,7 @@ struct HomePage: View {
                                             .shadow(radius: 1)
                                         
                                         VStack(spacing : geo.size.width * 0.01){
-                                            Text("Sathriyan")
+                                            Text(receiverName)
                                                 .font(Font.system(size: geo.size.width * 0.037))
                                                 .foregroundColor(.black)
                                                 .frame(maxWidth : .infinity, alignment: .leading)
@@ -299,7 +316,7 @@ struct HomePage: View {
                                                 .padding(.leading, geo.size.width * 0.025)
                                         }
                                         
-                                        Text("$ \(balanceAmount)")
+                                        Text("$ \(sendBalance)")
                                             .foregroundColor(.red)
                                             .font(Font.system(size: geo.size.width * 0.05))
                                             .fontWeight(.semibold)
@@ -318,20 +335,22 @@ struct HomePage: View {
                                 .sheet(isPresented: $showSheet, content: {
                                     TransactionDetailPage()
                                 })
-                              
+                                
                             }
                             
                         }
                         .padding(.top, geo.size.height * 0.03)
                         .padding(.bottom, geo.size.height * 0.006)
-
+                        
                     }
                 }
             }
             .background(Color("BgColor"))
             .edgesIgnoringSafeArea(.top)
             .navigationBarHidden(true)
+            
         }
+        
     }
 }
 

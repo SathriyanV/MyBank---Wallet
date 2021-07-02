@@ -121,7 +121,7 @@ struct AboutPage: View {
                                         
                                         Spacer()
                                         
-                                        Text("paintbrush")
+                                        Text("Sathriyan")
                                             .font(Font.system(size: geo.size.width * 0.045))
                                             .fontWeight(.semibold)
                                             .foregroundColor(.black)

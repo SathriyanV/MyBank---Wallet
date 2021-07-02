@@ -11,7 +11,11 @@ struct SendMoneyPage: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @State var balanceAmount : Int = 2000
+    @Binding var sendBalance : Int
+    
+    @Binding var receiverName : String
+    
+    @State var balanceCheck : Int = 0
     
     @State var addMoney : String = ""
     
@@ -19,7 +23,10 @@ struct SendMoneyPage: View {
     
     @State var accountNumber : String = ""
     
+    @State var colorChange : Bool = false
+    
     var body: some View {
+        
         NavigationView {
             GeometryReader { geo in
                 VStack {
@@ -97,7 +104,11 @@ struct SendMoneyPage: View {
                             
                             HStack(spacing : geo.size.width * 0.05){
                                 
-                                Button(action: {}, label: {
+                                Button(action: {
+                                    
+                                    addMoney = "50"
+                                    
+                                }, label: {
                                 Text("50")
                                     .font(Font.system(size: geo.size.height * 0.027))
                                     .fontWeight(.semibold)
@@ -108,7 +119,11 @@ struct SendMoneyPage: View {
                                     .opacity(0.9)
                             })
                                     
-                                Button(action: {}, label: {
+                                Button(action: {
+                                    
+                                    addMoney = "100"
+                                    
+                                }, label: {
                                 Text("100")
                                     .font(Font.system(size: geo.size.height * 0.027))
                                     .fontWeight(.semibold)
@@ -119,7 +134,11 @@ struct SendMoneyPage: View {
                                     .opacity(0.9)
                             })
                                 
-                                Button(action: {}, label: {
+                                Button(action: {
+                                    
+                                    addMoney = "500"
+                                    
+                                }, label: {
                                 Text("500")
                                     .font(Font.system(size: geo.size.height * 0.027))
                                     .fontWeight(.semibold)
@@ -135,8 +154,12 @@ struct SendMoneyPage: View {
                             
                             HStack(spacing : geo.size.width * 0.05){
                                 
-                                Button(action: {}, label: {
-                                Text("500")
+                                Button(action: {
+                                    
+                                    addMoney = "1000"
+                                    
+                                }, label: {
+                                Text("1000")
                                     .font(Font.system(size: geo.size.height * 0.027))
                                     .fontWeight(.semibold)
                                     .foregroundColor(.black)
@@ -146,8 +169,12 @@ struct SendMoneyPage: View {
                                     .opacity(0.9)
                             })
                                     
-                                Button(action: {}, label: {
-                                Text("1000")
+                                Button(action: {
+                                    
+                                    addMoney = "2500"
+                                    
+                                }, label: {
+                                Text("2500")
                                     .font(Font.system(size: geo.size.height * 0.027))
                                     .fontWeight(.semibold)
                                     .foregroundColor(.black)
@@ -157,8 +184,12 @@ struct SendMoneyPage: View {
                                     .opacity(0.9)
                                 })
                                 
-                                Button(action: {}, label: {
-                                    Text("2500")
+                                Button(action: {
+                                    
+                                    addMoney = "5000"
+                                    
+                                }, label: {
+                                    Text("5000")
                                         .font(Font.system(size: geo.size.height * 0.027))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
@@ -174,7 +205,12 @@ struct SendMoneyPage: View {
                         }
                         .padding(.top , geo.size.height * 0.02)
                         
-                        Button(action: {}, label: {
+                        Button(action: {
+
+                                sendBalance = Int(addMoney) ?? 1
+                                receiverName = name
+               
+                        }, label: {
                             Text("Send Money")
                                 .font(Font.system(size: geo.size.height * 0.027))
                                 .fontWeight(.semibold)
@@ -185,8 +221,6 @@ struct SendMoneyPage: View {
                                 .opacity(0.9)
                                 .padding(.top , geo.size.height * 0.1)
                         })
-                        
-                        
                     }
                 }
                 .frame(maxWidth : .infinity, maxHeight: .infinity , alignment: .top)
@@ -201,7 +235,8 @@ struct SendMoneyPage: View {
 }
 
 struct SendMoneyPage_Previews: PreviewProvider {
+    
     static var previews: some View {
-        SendMoneyPage()
+        SendMoneyPage(sendBalance: .constant(0), receiverName: .constant(""))
     }
 }

@@ -9,18 +9,32 @@ import SwiftUI
 
 struct BanksAndCards: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var balanceAmount : Int = 200
     
     var body: some View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
+                    
+                    Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {
+                        HStack {
+                            Image(systemName : "chevron.backward")
+                            Text("My Card")
+                        }
+                        .frame(maxWidth : .infinity, alignment : .leading)
+                        .padding(.leading, 15)
+                        .padding(.top, 55)
+                        
+                    })
+                    
                     Text("Banks and Cards")
                         .foregroundColor(Color("CardBg"))
                         .font(Font.system(size: geo.size.width * 0.075))
                         .fontWeight(.semibold)
                         .frame(maxWidth : .infinity, alignment: .leading)
-                        .padding(.top, geo.size.height * 0.12)
+                        .padding(.top, geo.size.height * 0.01)
                         .padding(.leading, geo.size.width * 0.0556)
                     
                         Text("My Cards")

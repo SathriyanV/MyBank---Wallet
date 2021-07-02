@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SettingsPage: View {
+    
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool = false
+    
     var body: some View {
         NavigationView {
             GeometryReader { geo in
@@ -141,7 +144,9 @@ struct SettingsPage: View {
                             
                             Divider()
                             
-                            NavigationLink(destination: BanksAndCards()) {
+                            NavigationLink(destination: BanksAndCards()
+                                            .navigationBarBackButtonHidden(true)
+                                            .navigationBarHidden(true)) {
                             HStack {
                                 
                                 Image(systemName: "creditcard")
@@ -257,7 +262,22 @@ struct SettingsPage: View {
                         
                     }
                     .frame(maxWidth : .infinity, alignment: .center)
-                    
+                  
+                    Button(action: {
+                        
+                        isLoggedIn.toggle()
+                        
+                    }, label: {
+                            Text("Log out")
+                                        .font(Font.system(size: geo.size.height * 0.027))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.white)
+                                        .frame(width : geo.size.width * 0.7, height: geo.size.height * 0.065)
+                                        .background(Color("CardBg"))
+                                        .cornerRadius(geo.size.width * 0.03)
+                                        .opacity(0.9)
+                            .padding(.top , geo.size.height * 0.05)
+                    })
                 }
                 .frame(maxWidth : .infinity, maxHeight: .infinity , alignment: .top)
             }

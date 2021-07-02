@@ -9,10 +9,15 @@ import SwiftUI
 
 struct SignIn: View {
     
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool?
+    
     @State var name : String = ""
     @State var mail : String = ""
     @State var password : String = ""
     
+    @State var showSheet : Bool = true
+    
+   
     var body: some View {
 
             NavigationView {
@@ -66,15 +71,22 @@ struct SignIn: View {
                                     .padding(.leading, geo.size.width * 0.4)
                                     .padding(.top , geo.size.height * 0.01)
                                 
-                                Text("Sign In")
-                                    .font(Font.system(size: geo.size.height * 0.027))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                                    .frame(width : geo.size.width * 0.7, height: geo.size.height * 0.065)
-                                    .background(Color("CardBg"))
-                                    .cornerRadius(geo.size.width * 0.03)
-                                    .opacity(0.9)
-                                    .padding(.top , geo.size.height * 0.05)
+                                    NavigationLink(destination:
+                                                    ContentView()
+                                                    .navigationBarBackButtonHidden(true)
+                                                    .navigationBarHidden(true))
+                                    {
+                                        Text("Sign In")
+                                            .font(Font.system(size: geo.size.height * 0.027))
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.white)
+                                            .frame(width : geo.size.width * 0.7, height: geo.size.height * 0.065)
+                                            .background(Color("CardBg"))
+                                            .cornerRadius(geo.size.width * 0.03)
+                                            .opacity(0.9)
+                                            .padding(.top , geo.size.height * 0.05)
+                                    }
+                                
                             }
                             
                             Spacer()
@@ -102,6 +114,7 @@ struct SignIn: View {
                                 
                             }
                             .padding(.top , geo.size.height * 0.08)
+                            .padding(.bottom , geo.size.height * 0.05)
                             .frame(maxWidth : .infinity, alignment: .center)
                         }
                         .frame(maxWidth : .infinity, alignment: .leading)
@@ -112,7 +125,7 @@ struct SignIn: View {
                 .frame(maxWidth : .infinity, maxHeight: .infinity, alignment: .top)
             }
                 .background(Color("BgColor"))
-                .edgesIgnoringSafeArea(.top)
+                .edgesIgnoringSafeArea(.all)
                 .ignoresSafeArea(.keyboard)
                 .navigationBarHidden(true)
                 
@@ -121,6 +134,7 @@ struct SignIn: View {
 }
 
 struct SignIn_Previews: PreviewProvider {
+    
     static var previews: some View {
         SignIn()
     }

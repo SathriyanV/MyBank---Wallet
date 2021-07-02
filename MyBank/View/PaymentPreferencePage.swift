@@ -20,7 +20,7 @@ struct PaymentPreferencePage: View {
                     Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {
                         HStack {
                             Image(systemName : "chevron.backward")
-                            Text("MyBank")
+                            Text("Back")
                         }
                         .frame(maxWidth : .infinity, alignment : .leading)
                         .padding(.leading, 15)

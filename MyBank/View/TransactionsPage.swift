@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct TransactionsPage: View {
-    
+        
     @State var balanceAmount : Int = 20000
     
     @State var showSheet : Bool = false
+    
+    @State var receiverName : String = "Sathriyan"
     
     var body: some View {
         
@@ -46,7 +48,7 @@ struct TransactionsPage: View {
                                             .shadow(radius: 1)
                                         
                                         VStack(spacing : geo.size.width * 0.01){
-                                            Text("Sathriyan")
+                                            Text(receiverName)
                                                 .font(Font.system(size: geo.size.width * 0.045))
                                                 .foregroundColor(.black)
                                                 .frame(maxWidth : .infinity, alignment: .leading)

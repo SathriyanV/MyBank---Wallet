@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SignUP: View {
     
+    @AppStorage("isLoggedIn") var isLoggedIn: Bool = true
+    
     @State var name : String = ""
     @State var mail : String = ""
     @State var password : String = ""
     @State var mobileNumber : String = ""
-    
+
     var body: some View {
         
         NavigationView {
@@ -77,7 +79,10 @@ struct SignUP: View {
                                 .cornerRadius(geo.size.width * 0.03)
                                 .shadow(radius: 1.2)
                         }
-                      
+                        NavigationLink(destination:
+                                        ContentView()
+                                        .navigationBarBackButtonHidden(true)
+                                        .navigationBarHidden(true)) {
                             Text("Sign Up")
                                 .font(Font.system(size: geo.size.height * 0.027))
                                 .fontWeight(.semibold)
@@ -87,7 +92,7 @@ struct SignUP: View {
                                 .cornerRadius(geo.size.width * 0.03)
                                 .opacity(0.9)
                                 .padding(.top , geo.size.height * 0.05)
-                        
+                        }
                         
                         Spacer()
                             .frame(height : geo.size.height * 0.05)
@@ -109,11 +114,10 @@ struct SignUP: View {
                                             .fontWeight(.semibold)
                                             .foregroundColor(Color("CardBg"))
                                     })
-                                
                             }
-                            
                         }
                         .padding(.top , geo.size.height * 0.05)
+                        .padding(.bottom , geo.size.height * 0.05)
                         .frame(maxWidth : .infinity, alignment: .center)
                     }
                     .frame(maxWidth : .infinity, alignment: .leading)
@@ -124,7 +128,7 @@ struct SignUP: View {
             .frame(maxWidth : .infinity, maxHeight: .infinity, alignment: .top)
         }
             .background(Color("BgColor"))
-            .edgesIgnoringSafeArea(.top)
+            .edgesIgnoringSafeArea(.all)
             .ignoresSafeArea(.keyboard)
             .navigationBarHidden(true)
             
@@ -133,6 +137,7 @@ struct SignUP: View {
 }
 
 struct SignUP_Previews: PreviewProvider {
+
     static var previews: some View {
         SignUP()
     }

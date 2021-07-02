@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AddMoney: View {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Binding var balanceAmount : Int
     
-    @State var balanceAmount : Int = 2000
+    @Binding var balanceCheck : Int
     
     @State var addMoney : String = ""
     
@@ -19,19 +19,7 @@ struct AddMoney: View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
-                    
-                    Button(action: {self.presentationMode.wrappedValue.dismiss()}, label: {
-                        HStack {
-                            Image(systemName : "chevron.backward")
-                            Text("My Card")
-                        }
-                        .frame(maxWidth : .infinity, alignment : .leading)
-                        .padding(.leading, 15)
-                        .padding(.top, 55)
-                        
-                    })
-                    
-                    
+      
                     VStack{
                         
                         Text("Add Money")
@@ -39,17 +27,17 @@ struct AddMoney: View {
                             .font(Font.system(size: geo.size.width * 0.07))
                             .fontWeight(.semibold)
                             .frame(maxWidth : .infinity, alignment: .leading)
-                            .padding(.top, geo.size.height * 0.017)
+                            .padding(.top, geo.size.height * 0.12)
                             .padding(.leading, geo.size.width * 0.065)
                         
-                        Text("$ \(balanceAmount)")
+                        Text("$ \(addMoney)")
                             .foregroundColor(.accentColor)
                             .font(Font.system(size: geo.size.width * 0.1))
                             .fontWeight(.bold)
                             .frame(maxWidth : .infinity, alignment: .center)
                             .padding(.top, geo.size.height * 0.02)
                         
-                        Text("currently in your wallet")
+                        Text("Amount you selected")
                             .foregroundColor(.secondary)
                             .font(Font.system(size: geo.size.width * 0.035))
                             .fontWeight(.semibold)
@@ -160,7 +148,10 @@ struct AddMoney: View {
                         }
                         .padding(.top , geo.size.height * 0.02)
                         
-                        Button(action: {}, label: {
+                        Button(action: {
+                            balanceAmount = Int(addMoney) ?? 0
+                            balanceCheck = Int(addMoney) ?? 0
+                        }, label: {
                             Text("Add Money")
                                 .font(Font.system(size: geo.size.height * 0.027))
                                 .fontWeight(.semibold)
@@ -171,7 +162,6 @@ struct AddMoney: View {
                                 .opacity(0.9)
                                 .padding(.top , geo.size.height * 0.1)
                         })
-                        
                         
                     }
                 }
@@ -187,7 +177,9 @@ struct AddMoney: View {
 }
 
 struct AddMoney_Previews: PreviewProvider {
+    
+   
     static var previews: some View {
-        AddMoney()
+        AddMoney(balanceAmount: .constant(0), balanceCheck: .constant(0))
     }
 }
