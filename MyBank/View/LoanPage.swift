@@ -17,12 +17,13 @@ struct LoanPage: View {
                 VStack {
                     VStack {
 
-                        Text("Request a Loan")
+                        Text("Loan Request")
                             .foregroundColor(Color("CardBg"))
-                            .font(Font.system(size: geo.size.width * 0.075))
+                            .font(Font.system(size: geo.size.width * 0.07))
                             .fontWeight(.semibold)
-                            .frame(maxWidth : .infinity, alignment: .center)
-                            .padding(.top, geo.size.height * 0.06)
+                            .frame(maxWidth : .infinity, alignment: .leading)
+                            .padding(.top, geo.size.height * 0.065)
+                            .padding(.leading, geo.size.width * 0.065)
                             
                         
                         Text("Select type of loan")

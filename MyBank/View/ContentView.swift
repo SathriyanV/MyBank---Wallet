@@ -33,7 +33,6 @@ struct ContentView: View {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
-            
         }
     }
 }

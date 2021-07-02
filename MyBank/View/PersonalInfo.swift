@@ -26,6 +26,107 @@ struct PersonalInfo: View {
                             .fontWeight(.semibold)
                             .padding(.top, geo.size.height * 0.015)
                     }
+                    
+                    VStack{
+                        Text("Name")
+                            .font(Font.system(size: geo.size.width * 0.045))
+                            .foregroundColor(.secondary)
+                            .frame(maxWidth : .infinity, alignment: .leading)
+                            .padding(.leading, geo.size.width * 0.06)
+                            .padding(.top, geo.size.height * 0.01)
+                        
+                        HStack {
+                            
+                            Text("Sathriyan V")
+                                .font(Font.system(size: geo.size.width * 0.048))
+                                .foregroundColor(.black)
+                                .padding(.leading, geo.size.width * 0.03)
+                        }
+                        .padding(.vertical, geo.size.height * 0.02)
+                        .padding(.leading, geo.size.width * 0.025)
+                        .frame(maxWidth : .infinity, alignment: .leading)
+                        .frame(width : geo.size.width * 0.88)
+                        .background(Color.white)
+                        .cornerRadius(geo.size.width * 0.02)
+                        .padding(.top, geo.size.height * 0.001)
+                        
+                    }
+                    
+                    VStack{
+                        Text("Phone")
+                            .font(Font.system(size: geo.size.width * 0.045))
+                            .foregroundColor(.secondary)
+                            .frame(maxWidth : .infinity, alignment: .leading)
+                            .padding(.leading, geo.size.width * 0.06)
+                            .padding(.top, geo.size.height * 0.01)
+                        
+                        HStack {
+                            
+                            Text("+91 8508402025")
+                                .font(Font.system(size: geo.size.width * 0.048))
+                                .foregroundColor(.black)
+                                .padding(.leading, geo.size.width * 0.03)
+                        }
+                        .padding(.vertical, geo.size.height * 0.02)
+                        .padding(.leading, geo.size.width * 0.025)
+                        .frame(maxWidth : .infinity, alignment: .leading)
+                        .frame(width : geo.size.width * 0.88)
+                        .background(Color.white)
+                        .cornerRadius(geo.size.width * 0.02)
+                        .padding(.top, geo.size.height * 0.001)
+                        
+                    }
+                    
+                    VStack{
+                        Text("Email")
+                            .font(Font.system(size: geo.size.width * 0.045))
+                            .foregroundColor(.secondary)
+                            .frame(maxWidth : .infinity, alignment: .leading)
+                            .padding(.leading, geo.size.width * 0.06)
+                            .padding(.top, geo.size.height * 0.01)
+                        
+                        HStack {
+                            
+                            Text("sathriyansam@yahoo.com")
+                                .font(Font.system(size: geo.size.width * 0.048))
+                                .foregroundColor(.black)
+                                .padding(.leading, geo.size.width * 0.03)
+                        }
+                        .padding(.vertical, geo.size.height * 0.02)
+                        .padding(.leading, geo.size.width * 0.025)
+                        .frame(maxWidth : .infinity, alignment: .leading)
+                        .frame(width : geo.size.width * 0.88)
+                        .background(Color.white)
+                        .cornerRadius(geo.size.width * 0.02)
+                        .padding(.top, geo.size.height * 0.001)
+                        
+                    }
+                    
+                    VStack{
+                        Text("Account number")
+                            .font(Font.system(size: geo.size.width * 0.045))
+                            .foregroundColor(.secondary)
+                            .frame(maxWidth : .infinity, alignment: .leading)
+                            .padding(.leading, geo.size.width * 0.06)
+                            .padding(.top, geo.size.height * 0.01)
+                        
+                        HStack {
+                            
+                            Text("09876543XY")
+                                .font(Font.system(size: geo.size.width * 0.048))
+                                .foregroundColor(.black)
+                                .padding(.leading, geo.size.width * 0.03)
+                        }
+                        .padding(.vertical, geo.size.height * 0.02)
+                        .padding(.leading, geo.size.width * 0.025)
+                        .frame(maxWidth : .infinity, alignment: .leading)
+                        .frame(width : geo.size.width * 0.88)
+                        .background(Color.white)
+                        .cornerRadius(geo.size.width * 0.02)
+                        .padding(.top, geo.size.height * 0.001)
+                        
+                    }
+                    
                 }
                 .frame(maxWidth : .infinity, maxHeight: .infinity , alignment: .top)
             }

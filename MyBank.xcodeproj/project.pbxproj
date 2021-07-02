@@ -11,6 +11,11 @@
 		9339C09C268CCA3C00AEDDCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9339C09B268CCA3C00AEDDCB /* ContentView.swift */; };
 		9339C09E268CCA3C00AEDDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9339C09D268CCA3C00AEDDCB /* Assets.xcassets */; };
 		9339C0A1268CCA3C00AEDDCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9339C0A0268CCA3C00AEDDCB /* Preview Assets.xcassets */; };
+		93B63A06268F05F500995188 /* NotificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B63A05268F05F500995188 /* NotificationPage.swift */; };
+		93B63A08268F0C4600995188 /* PaymentPreferencePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B63A07268F0C4600995188 /* PaymentPreferencePage.swift */; };
+		93B63A0A268F0FB500995188 /* BanksAndCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B63A09268F0FB500995188 /* BanksAndCards.swift */; };
+		93B63A0C268F163A00995188 /* LoanDocumentsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B63A0B268F163A00995188 /* LoanDocumentsPage.swift */; };
+		93B63A0E268F175F00995188 /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B63A0D268F175F00995188 /* AboutPage.swift */; };
 		93CA4896268D976500340F7E /* TransactionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA4895268D976500340F7E /* TransactionsPage.swift */; };
 		93CA4898268DA2F600340F7E /* TransactionDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA4897268DA2F600340F7E /* TransactionDetailPage.swift */; };
 		93CA489A268DD72B00340F7E /* MyCardPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CA4899268DD72B00340F7E /* MyCardPage.swift */; };
@@ -31,6 +36,11 @@
 		9339C09D268CCA3C00AEDDCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9339C0A0268CCA3C00AEDDCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9339C0A2268CCA3C00AEDDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93B63A05268F05F500995188 /* NotificationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPage.swift; sourceTree = "<group>"; };
+		93B63A07268F0C4600995188 /* PaymentPreferencePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentPreferencePage.swift; sourceTree = "<group>"; };
+		93B63A09268F0FB500995188 /* BanksAndCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndCards.swift; sourceTree = "<group>"; };
+		93B63A0B268F163A00995188 /* LoanDocumentsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanDocumentsPage.swift; sourceTree = "<group>"; };
+		93B63A0D268F175F00995188 /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
 		93CA4895268D976500340F7E /* TransactionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsPage.swift; sourceTree = "<group>"; };
 		93CA4897268DA2F600340F7E /* TransactionDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailPage.swift; sourceTree = "<group>"; };
 		93CA4899268DD72B00340F7E /* MyCardPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardPage.swift; sourceTree = "<group>"; };
@@ -122,6 +132,11 @@
 				93CA489F268E0DEF00340F7E /* LoanPage.swift */,
 				93CA48A1268E3E6A00340F7E /* SettingsPage.swift */,
 				93CA48A3268E440500340F7E /* PersonalInfo.swift */,
+				93B63A05268F05F500995188 /* NotificationPage.swift */,
+				93B63A07268F0C4600995188 /* PaymentPreferencePage.swift */,
+				93B63A09268F0FB500995188 /* BanksAndCards.swift */,
+				93B63A0B268F163A00995188 /* LoanDocumentsPage.swift */,
+				93B63A0D268F175F00995188 /* AboutPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,9 +212,12 @@
 			files = (
 				93F3C7B8268CEA4700A8A2FF /* HomePage.swift in Sources */,
 				93CA4896268D976500340F7E /* TransactionsPage.swift in Sources */,
+				93B63A0E268F175F00995188 /* AboutPage.swift in Sources */,
 				9339C09C268CCA3C00AEDDCB /* ContentView.swift in Sources */,
 				93CA489A268DD72B00340F7E /* MyCardPage.swift in Sources */,
 				93F3C7B6268CCC3900A8A2FF /* SignUP.swift in Sources */,
+				93B63A06268F05F500995188 /* NotificationPage.swift in Sources */,
+				93B63A0C268F163A00995188 /* LoanDocumentsPage.swift in Sources */,
 				93CA4898268DA2F600340F7E /* TransactionDetailPage.swift in Sources */,
 				93CA48A4268E440500340F7E /* PersonalInfo.swift in Sources */,
 				93CA48A2268E3E6A00340F7E /* SettingsPage.swift in Sources */,
@@ -207,7 +225,9 @@
 				93CA48A0268E0DEF00340F7E /* LoanPage.swift in Sources */,
 				93F3C7B4268CCBFC00A8A2FF /* SignIn.swift in Sources */,
 				9339C09A268CCA3C00AEDDCB /* MyBankApp.swift in Sources */,
+				93B63A0A268F0FB500995188 /* BanksAndCards.swift in Sources */,
 				93CA489E268DFCC000340F7E /* SendMoneyPage.swift in Sources */,
+				93B63A08268F0C4600995188 /* PaymentPreferencePage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

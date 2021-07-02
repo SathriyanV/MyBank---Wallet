@@ -40,11 +40,11 @@ struct SettingsPage: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .foregroundColor(.black)
-                                        .frame(width : geo.size.width * 0.057)
+                                        .frame(width : geo.size.width * 0.05, height : geo.size.width * 0.05)
                                         .padding(.leading, geo.size.width * 0.015)
                                     
                                     Text("Personal Information")
-                                        .font(Font.system(size: geo.size.width * 0.05))
+                                        .font(Font.system(size: geo.size.width * 0.048))
                                         .foregroundColor(.black)
                                         .padding(.leading, geo.size.width * 0.03)
                                     
@@ -61,17 +61,18 @@ struct SettingsPage: View {
                            
                             Divider()
                             
+                            NavigationLink(destination: NotificationPage()) {
                             HStack {
                                 
                                 Image(systemName: "bell")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.black)
-                                    .frame(width : geo.size.width * 0.057)
+                                    .frame(width : geo.size.width * 0.05, height : geo.size.width * 0.05)
                                     .padding(.leading, geo.size.width * 0.015)
                                 
                                 Text("Notifications")
-                                    .font(Font.system(size: geo.size.width * 0.05))
+                                    .font(Font.system(size: geo.size.width * 0.048))
                                     .foregroundColor(.black)
                                     .padding(.leading, geo.size.width * 0.03)
                                 
@@ -83,8 +84,9 @@ struct SettingsPage: View {
                                     .foregroundColor(.black)
                                     .frame(width : geo.size.width * 0.02)
                                     .padding(.trailing, geo.size.width * 0.05)
-                                
                             }
+                            }
+                            
                         }
                         .padding(.vertical, geo.size.height * 0.02)
                         .padding(.leading, geo.size.width * 0.04)
@@ -107,17 +109,22 @@ struct SettingsPage: View {
                     
                     VStack{
                         VStack(spacing : geo.size.height * 0.02){
+                            
+                            NavigationLink(destination: PaymentPreferencePage()
+                                            .navigationBarBackButtonHidden(true)
+                                            .navigationBarHidden(true)
+                            ) {
                             HStack {
                                 
-                                Image(systemName: "person")
+                                Image(systemName: "dollarsign.square")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.black)
-                                    .frame(width : geo.size.width * 0.057)
+                                    .frame(width : geo.size.width * 0.05, height : geo.size.width * 0.05)
                                     .padding(.leading, geo.size.width * 0.015)
                                 
                                 Text("Payment Preferences")
-                                    .font(Font.system(size: geo.size.width * 0.05))
+                                    .font(Font.system(size: geo.size.width * 0.048))
                                     .foregroundColor(.black)
                                     .padding(.leading, geo.size.width * 0.03)
                                 
@@ -129,22 +136,23 @@ struct SettingsPage: View {
                                     .foregroundColor(.black)
                                     .frame(width : geo.size.width * 0.02)
                                     .padding(.trailing, geo.size.width * 0.05)
-                                
+                            }
                             }
                             
                             Divider()
                             
+                            NavigationLink(destination: BanksAndCards()) {
                             HStack {
                                 
-                                Image(systemName: "person")
+                                Image(systemName: "creditcard")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.black)
-                                    .frame(width : geo.size.width * 0.057)
+                                    .frame(width : geo.size.width * 0.05, height : geo.size.width * 0.05)
                                     .padding(.leading, geo.size.width * 0.015)
                                 
                                 Text("Banks and Cards")
-                                    .font(Font.system(size: geo.size.width * 0.05))
+                                    .font(Font.system(size: geo.size.width * 0.048))
                                     .foregroundColor(.black)
                                     .padding(.leading, geo.size.width * 0.03)
                                 
@@ -156,22 +164,23 @@ struct SettingsPage: View {
                                     .foregroundColor(.black)
                                     .frame(width : geo.size.width * 0.02)
                                     .padding(.trailing, geo.size.width * 0.05)
-                                
+                            }
                             }
                             
                             Divider()
                             
+                            NavigationLink(destination: LoanDocumentsPage()) {
                             HStack {
                                 
-                                Image(systemName: "person")
+                                Image(systemName: "doc")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.black)
-                                    .frame(width : geo.size.width * 0.057)
+                                    .frame(width : geo.size.width * 0.05, height : geo.size.width * 0.05)
                                     .padding(.leading, geo.size.width * 0.015)
                                 
                                 Text("Loan Documents")
-                                    .font(Font.system(size: geo.size.width * 0.05))
+                                    .font(Font.system(size: geo.size.width * 0.048))
                                     .foregroundColor(.black)
                                     .padding(.leading, geo.size.width * 0.03)
                                 
@@ -183,7 +192,7 @@ struct SettingsPage: View {
                                     .foregroundColor(.black)
                                     .frame(width : geo.size.width * 0.02)
                                     .padding(.trailing, geo.size.width * 0.05)
-                                
+                            }
                             }
                             
                         }
@@ -209,17 +218,19 @@ struct SettingsPage: View {
                     
                     VStack{
                         VStack(spacing : geo.size.height * 0.025){
+                            
+                            NavigationLink(destination: AboutPage()) {
                             HStack {
                                 
                                 Image(systemName: "info.circle")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .foregroundColor(.black)
-                                    .frame(width : geo.size.width * 0.057)
+                                    .frame(width : geo.size.width * 0.05, height : geo.size.width * 0.05)
                                     .padding(.leading, geo.size.width * 0.015)
                                 
                                 Text("About")
-                                    .font(Font.system(size: geo.size.width * 0.05))
+                                    .font(Font.system(size: geo.size.width * 0.048))
                                     .foregroundColor(.black)
                                     .padding(.leading, geo.size.width * 0.03)
                                 
@@ -231,7 +242,7 @@ struct SettingsPage: View {
                                     .foregroundColor(.black)
                                     .frame(width : geo.size.width * 0.02)
                                     .padding(.trailing, geo.size.width * 0.05)
-                                
+                            }
                             }
                             
                         }
