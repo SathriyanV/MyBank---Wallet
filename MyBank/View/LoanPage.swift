@@ -10,7 +10,19 @@ import SwiftUI
 struct LoanPage: View {
     
     @State var addMoney : String = ""
+    
     @State var showAlert : Bool = false
+    
+    @State var educationLoanToggle : Bool = true
+    @State var personalLoanToggle : Bool = true
+    @State var homeLoanToggle : Bool = true
+    @State var carLoanToggle : Bool = true
+    
+    @State var tOne : Bool = true
+    @State var tTwo : Bool = true
+    @State var tThree : Bool = true
+    @State var tFour : Bool = true
+    @State var tFive : Bool = true
     
     var body: some View {
         NavigationView {
@@ -21,7 +33,7 @@ struct LoanPage: View {
 
                             Text("Loan Request")
                                 .foregroundColor(Color("CardBg"))
-                                .font(Font.system(size: geo.size.width * 0.07))
+                                .font(Font.system(size: geo.size.width * 0.075))
                                 .fontWeight(.semibold)
                                 .frame(maxWidth : .infinity, alignment: .leading)
                                 .padding(.top, geo.size.height * 0.065)
@@ -35,29 +47,43 @@ struct LoanPage: View {
                                 .frame(maxWidth : .infinity, alignment: .leading)
                                 .padding(.top, geo.size.height * 0.015)
                                 .padding(.leading, geo.size.width * 0.065)
-                            
+                    
                             VStack {
                                 
                                 HStack(spacing : geo.size.width * 0.065){
-                                    
-                                    Button(action: {}, label: {
+                                   
+                                    Button(action: {
+                                        
+                                        educationLoanToggle.toggle()
+                                        personalLoanToggle = true
+                                        homeLoanToggle = true
+                                        carLoanToggle = true
+                                        
+                                    }, label: {
                                     Text("Education")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.4, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( educationLoanToggle ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
                                         
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        
+                                        personalLoanToggle.toggle()
+                                        educationLoanToggle = true
+                                        homeLoanToggle = true
+                                        carLoanToggle = true
+                                        
+                                    }, label: {
                                     Text("Personal")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.4, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( personalLoanToggle ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
@@ -66,24 +92,38 @@ struct LoanPage: View {
                                 
                                 HStack(spacing : geo.size.width * 0.065){
                                     
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        
+                                        homeLoanToggle.toggle()
+                                        educationLoanToggle = true
+                                        personalLoanToggle = true
+                                        carLoanToggle = true
+                                        
+                                    }, label: {
                                     Text("Home")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.4, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( homeLoanToggle ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
                                         
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        
+                                        carLoanToggle.toggle()
+                                        educationLoanToggle = true
+                                        personalLoanToggle = true
+                                        homeLoanToggle = true
+                                        
+                                    }, label: {
                                     Text("Car / Bike")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.4, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( carLoanToggle ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
@@ -189,57 +229,97 @@ struct LoanPage: View {
                                 
                                 HStack(spacing : geo.size.width * 0.035){
                                     
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                            
+                                        tOne.toggle()
+                                        tTwo = true
+                                        tThree = true
+                                        tFour = true
+                                        tFive = true
+                                        
+                                    }, label: {
                                     Text("6")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.14, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( tOne ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
                                         
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        
+                                        tOne  = true
+                                        tTwo.toggle()
+                                        tThree = true
+                                        tFour = true
+                                        tFive = true
+                                        
+                                    }, label: {
                                     Text("12")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.14, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( tTwo ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
                                     
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        
+                                        tOne  = true
+                                        tTwo  = true
+                                        tThree.toggle()
+                                        tFour = true
+                                        tFive = true
+                                        
+                                    }, label: {
                                     Text("18")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.14, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( tThree ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
                                     
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        
+                                        tOne  = true
+                                        tTwo  = true
+                                        tThree = true
+                                        tFour.toggle()
+                                        tFive = true
+                                        
+                                    }, label: {
                                     Text("24")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.14, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( tFour ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })
                                     
-                                    Button(action: {}, label: {
+                                    Button(action: {
+                                        
+                                        tOne  = true
+                                        tTwo  = true
+                                        tThree = true
+                                        tFour = true
+                                        tFive.toggle()
+                                        
+                                    }, label: {
                                     Text("30")
                                         .font(Font.system(size: geo.size.height * 0.025))
                                         .fontWeight(.semibold)
                                         .foregroundColor(.black)
                                         .frame(width : geo.size.width * 0.14, height: geo.size.height * 0.07)
-                                        .background(Color.black.opacity(0.12))
+                                        .background( tFive ? Color.black.opacity(0.12) : Color.accentColor.opacity(0.7))
                                         .cornerRadius(geo.size.width * 0.015)
                                         .opacity(0.9)
                                 })

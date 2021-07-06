@@ -44,6 +44,7 @@ struct PaymentPreferencePage: View {
                                 .frame(maxWidth : .infinity, alignment: .leading)
                                 .padding(.leading, geo.size.width * 0.06)
                                 .padding(.top, geo.size.height * 0.015)
+                                .padding(.bottom, geo.size.height * 0.008)
                             
                             HStack {
                                 
